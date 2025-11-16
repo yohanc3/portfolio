@@ -1,0 +1,57 @@
+---
+interface TimelineItem {
+	startDate: string;
+	endDate: string;
+	company: string;
+	description: string;
+	highlights?: string[];
+	tech?: string[];
+}
+
+interface Props {
+	items: TimelineItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="space-y-6 py-2">
+	{
+		items.map((item) => (
+			<div class="flex items-start gap-3">
+				<div class="flex-shrink-0 font-bold text-gray-700 dark:text-gray-300">{item.startDate}</div>{' '}
+				-<div class="flex-shrink-0 font-bold text-gray-700 dark:text-gray-300">{item.endDate}</div>
+				<div class="flex-shrink-0 text-gray-700 dark:text-gray-300">---</div>
+				<div class="flex-1">
+					<div>
+						<span class="font-black text-orange-600">{item.company}</span>
+						<span class="text-gray-700 dark:text-gray-300"> — {item.description}</span>
+					</div>
+					{(item.highlights || item.tech) && (
+						<div class="mt-2 space-y-1.5">
+							{item.highlights && (
+								<div class="flex flex-wrap gap-1.5">
+									{item.highlights.map((highlight) => (
+										<span class="inline-flex items-center gap-1 text-xs text-gray-600 dark:text-gray-400">
+											<span class="text-orange-500">▪</span>
+											{highlight}
+										</span>
+									))}
+								</div>
+							)}
+							{item.tech && (
+								<div class="flex flex-wrap gap-1.5">
+									{item.tech.map((tech) => (
+										<span class="rounded bg-orange-100 px-2 py-0.5 text-xs font-medium text-orange-700 dark:bg-orange-900/30 dark:text-orange-400">
+											{tech}
+										</span>
+									))}
+								</div>
+							)}
+						</div>
+					)}
+				</div>
+			</div>
+		))
+	}
+</div>

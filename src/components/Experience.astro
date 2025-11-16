@@ -1,0 +1,47 @@
+---
+import Section from './Section.astro';
+import Timeline from './Timeline.astro';
+
+const timelineItems = [
+	{
+		company: 'Mastercard',
+		startDate: 'Jun 2026',
+		endDate: 'Aug 2026',
+		description:
+			"Working on Mastercard's next-gen edge gateway unifying secure network access across clouds.",
+		highlights: ['Payment network infrastructure', 'High-performance systems'],
+		tech: ['Golang', 'Jenkins', 'gRPC', 'mTLS/TLS', 'BitBucket']
+	},
+	{
+		startDate: 'Aug 2025',
+		endDate: 'Present',
+		company: 'Teaching Assistant',
+		description: 'Supporting students from an introductory CS class in Python.',
+		highlights: ['Built an automation for speeding up grading'],
+		tech: ['Python', 'Communication', 'Empathy']
+	},
+	{
+		startDate: 'Aug 2025',
+		endDate: 'Present',
+		company: 'Starbreak',
+		description: 'Development firm where I build AI-driven systems and business automation tools.',
+		highlights: ['LLM assistant architecture', 'E-commerce platform integration'],
+		tech: ['TypeScript', 'Python', 'Flask', 'React', 'Linux Systemd']
+	},
+	{
+		startDate: 'May 2024',
+		endDate: 'Mar 2025',
+		company: 'Keepsake',
+		description: 'Legal Tech Startup where we developed software for Estate Planning Attorneys.',
+		highlights: ['Full-stack features', 'Infrastructure management'],
+		tech: ['React', 'TypeScript', 'Firebase', 'MongoDB', 'Google Cloud']
+	}
+];
+---
+
+<Section>
+	<div class="text-sm">
+		<p class="pt-6 pb-4 text-2xl font-bold">What have I been up to!?</p>
+		<Timeline items={timelineItems} />
+	</div>
+</Section>
